@@ -1,0 +1,57 @@
+<%- include('./base/header.ejs') %>
+    <div class="container"></div>
+    <div class="alert bg-success my-3">
+        <h4 class="text-center " style="color: white;">All student Data </h4>
+    </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="table-responsive"> <!-- Make the table responsive -->
+                <table class="table table-bordered table-striped"> <!-- Add Bootstrap table classes -->
+                    <thead class="thead-dark"> <!-- Bootstrap class for dark table header -->
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Father Name</th>
+                            <th>Adhar No</th>
+                            <th>Mobile No</th>
+                            <th>Action</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% students.forEach((student)=> { %>
+                            <tr>
+                                <td>
+                                    <%= student.rollNo %>
+                                </td>
+                                <td>
+                                    <%= student.name %>
+                                </td>
+                                <td>
+                                    <%= student.fatherName %>
+                                </td>
+                                <td>
+                                    <%= student.adharNo %>
+                                </td>
+                                <td>
+                                    <%= student.mobileNo %>
+                                </td>
+                                <td>
+
+                                    <a href="/student/edit/page/<%= student._id %>"
+                                        class="btn btn-warning w-45">Edit</a>
+                                    <a href="/delete/student/<%= student._id %>"
+                                        class="btn btn-danger w-45">Delete</a>
+                                </td>
+
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <%- include('./base/footer.ejs') %>

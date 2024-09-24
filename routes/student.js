@@ -6,4 +6,9 @@ router.get("/", (req, res) => {
     res.render('home')
 })
 router.post("/add/student",studentcontroller.addStudent)
+router.get("/students",studentcontroller.getstudents)
+// route for edit 
+router.get('/student/edit/page/:id',studentcontroller.getstudentbyid)
+router.post('/update/student/:id',studentcontroller.updatestudent)
+router.get("/delete/student/:id",studentcontroller.delete)
 module.exports = router;
